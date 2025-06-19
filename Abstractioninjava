@@ -1,0 +1,67 @@
+//userside
+package abstraction;
+
+public interface User {
+	public void login();
+	
+	public void logout();
+
+}
+//adminside
+package abstraction;
+
+public class admin implements User{
+	public void login() {
+		System.out.println("Admin login successfully!");	}
+
+public void logout() {
+	System.out.println("Admin logout successfully");
+}
+}
+//customer
+package abstraction;
+
+public class Customer implements User {
+	
+	public void login() {
+		System.out.println("Customer login successfully!!");
+	}
+	public void logout() {
+		System.out.println("Customer logout successfully!!");
+	}
+
+}
+//Objectcreation
+package abstraction;
+
+public class ObjectCreation {
+	public static User createPassword(int password) {
+		User user;
+		if(password == 123) {
+			user = new admin();
+		
+		}else {
+			user = new Customer();
+		}
+		return user;
+	}
+
+}
+//Objectutilization
+package abstraction;
+
+public class ObjectUtilizationn {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		User user1 = ObjectCreation.createPassword(123);
+		user1.login();
+		user1.logout();
+		User user2 = ObjectCreation.createPassword(456);
+		user2.login();
+		user2.logout();
+
+	}
+
+}
+
